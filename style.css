@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Savate:ital,wght@0,200..900;1,200..900&display=swap");
+
+/* BASIC RESET AND FONTS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gabarito", sans-serif; /* Using Gabarito as the primary font */
+}
+
+body,
+html {
+  height: 100%;
+  overflow: hidden; /* Prevent overall page scrolling */
+}
+
+body {
+  background-color: rgb(25, 25, 25); /* Dark background for the main page */
+  color: white; /* Default text color for the main layout */
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between; /* Space between logo and date display */
+  align-items: center;
+  padding: 15px 20px;
+  background-color: rgb(4, 9, 29); /* Dark blue header background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  color: white; /* Ensure header text is white */
+}
+
+header .logo { /* Target logo specifically in the main header */
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+header .logo img { /* Target logo image specifically in the main header */
+  height: 32px;
+  margin-right: 10px;
+}
+
+#app__title { /* Ensure main app title is white */
+    color: white;
+}
+
+.date__display {
+  text-align: right;
+}
+
+.day {
+  font-weight: bold;
+}
+
+.full__date,
+#currentDate {
+  color: rgb(89, 82, 209); /* Accent color for date */
+}
+
+/* MAIN LAYOUT */
+.container {
+  display: flex;
+  height: calc(100vh - 67px); /* Subtract header height (approx 67px) */
+  overflow: hidden; /* Prevent container content from overflowing */
+} 
+
+
+/* SIDEBAR PROFILE */
+.sidebar {
+  width: 250px;
+  min-width: 250px; /* Fixed width */
+  background: rgb(4, 9, 29); /* Dark blue sidebar background */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Shadow on the right */
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile__img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  border: 3px solid rgb(138, 43, 226);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  background-color: rgb(35, 35, 35);
+}
+
+.profile__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile__name {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: white; /* Ensure profile name is white */
+}
+
+.profile__email {
+  font-size: 12px;
+  opacity: 0.8;
+  color: #bbb; /* Lighter color for email */
+}
+
+.sidebar__button {
+  background-color: transparent; /* Default transparent background */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  width: 100%;
+  text-align: left;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar__button:hover {
+    background-color: rgba(89, 82, 209, 0.2); /* Subtle hover effect */
+}
+
+.sidebar__button.active {
+  background-color: rgb(89, 82, 209); /* Active button accent color */
+}
+
+/* MAIN CONTENT */
+.main__content {
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* no matter what they start from the top */
+    overflow-y: auto; /* no matter what we're going to be able to scroll up and down */
+}
+
+.qotd {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #2a2a2a;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 12px;
+}
+
+.qotd__intro {
+    margin-bottom: 20px;
+}
+
+.qotd__icon { /* these kind of stylings won't work on a span */
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.qotd__title {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.qotd__description {
+    font-size: 18px;
+    color: #bbb;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 32px;
+}
+
+.qotd__section--title {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.qotd__quote--text {
+    font-size: 32px;
+    font-style: italic;
+    color: #ccc;
+    margin-bottom: 24px;
+    display: none;
+}
+
+.qotd__quote {
+    font-size: 16px;
+    color: #bbb;
+    margin-bottom: 24px;
+}
+
+.qotd__button--group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 32px;
+}
+
+.qotd__button {
+    background-color: #8a2be2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.qotd__button:hover {
+    background-color: #6a28a7;
+}
+
+.qotd__button--favourite {
+    background-color: #c04cc0;
+    /* display: none; */
+}
+
+.qotd__button--favourite:hover {
+    background-color: #a028a7;
+}
+
+.qotd__form {
+    margin-bottom: 32px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 32px;
+}
+
+.qotd__form--title {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.qotd__form--description {
+    font-size: 18px;
+    color: #bbb;
+    margin-bottom: 24px;
+}
+
+.qotd__form--group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.qotd__label {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #bbb;
+}
+
+.qotd__input {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: #2a2a2a;
+    color: white;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.qotd__input:focus {
+    border-color: #6a28a7;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(106, 40, 167, 0.3);
+}
+
+.qotd__favourites {
+    margin-bottom: 32px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 32px;
+}
+
+.qotd__favourites--list,
+.qotd__personal--list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.qotd__favourites--item,
+.qotd__personal--item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: #444;
+    border-radius: 8px;
+    color: white;
+}
+
+.qotd__favourites--empty,
+.qotd__personal--empty {
+    color: #ccc;
+}
+
+.qotd__favourites--quote,
+.qotd__personal--quote {
+    font-style: italic;
+    color: #ccc;
+}
+
+.qotd__button--removeFavourite,
+.qotd__button--removePersonal {
+    background-color: #c82333;
+}
+
+.qotd__button--removeFavourite:hover,
+.qotd__button--removePersonal:hover {
+    background-color: #a71d2b;
+}
+
+/* RESPONSIVENESS */
+@media(max-width: 800px) {
+    .qotd__quote--text {
+        font-size: 24px;
+    }
+
+    .qotd__button--group {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .qotd__favourites--item,
+    .qotd__personal--item {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+}
